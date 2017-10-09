@@ -1,3 +1,4 @@
+# holds all properties passed on to other instances of furniture
 module Properties
   module ClassMethods
     def four_legs
@@ -5,8 +6,18 @@ module Properties
     end
 
     def type_of_wood
-        "Cherry"
+      "Cherry"
     end
+  end
+
+  def self.included(base)
+    base.extend(ClassMethods)
+  end
+
+
+  #created other four_legs method to demonstrate name spacing
+  def four_legs
+    "This also has four legs"
   end
 
   def description
